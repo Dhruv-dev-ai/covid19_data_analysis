@@ -19,7 +19,7 @@ covid <- read_csv("owid-covid-data.csv")
 
 selected <- covid %>%
   filter(location %in% c("India", "United States", "Brazil", "Germany")) %>%
-  select(location, date=as.Date(date), total_cases_per_million, total_deaths_per_million, new_cases_smoothed_per_million, people_fully_vaccinated_per_hundred)
+  select(location, date, total_cases_per_million, total_deaths_per_million, new_cases_smoothed_per_million, people_fully_vaccinated_per_hundred)
 
 
 #Save smaller file
