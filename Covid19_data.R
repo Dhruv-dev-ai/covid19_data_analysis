@@ -1,3 +1,8 @@
+# COVID-19 Comparative Data Analysis
+# Author: Dhruv Devesan Nambiar
+# Date: 01/08/2025
+# Description: Analyzes COVID-19 trends (cases, deaths, CFR) for India, US, Brazil, and Germany using OWID data.
+
 # Load packages
 
 library(tidyverse)
@@ -8,13 +13,13 @@ url <- "https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/master/p
 download.file(url, "owid-covid-data.csv")
 
 #Read and filter
-covid <- read.csv("owid-covid-data.csv")
+covid <- read_csv("owid-covid-data.csv")
 
 #Select only needed countries and select only a few columns for comparison
 
 selected <- covid %>%
   filter(location %in% c("India", "United States", "Brazil", "Germany")) %>%
-  select(location, date, total_cases_per_million, total_deaths_per_million, new_cases_smoothed_per_million, people_fully_vaccinated_per_hundred)
+  select(location, date=as.Date(date), total_cases_per_million, total_deaths_per_million, new_cases_smoothed_per_million, people_fully_vaccinated_per_hundred)
 
 
 #Save smaller file
@@ -33,7 +38,7 @@ selected %>%
   xlab("Date")+ylab("New Cases (per million)")+
   theme_bw()
 
-#Saving the plot
+#Saving the plot:
 ggsave("New_cases_selected.png")
 
 ##Deaths per million comparison:
@@ -49,7 +54,7 @@ ggplot(aes(date, total_deaths_per_million, group = location))+
        x = "Date") +
   theme_bw()
 
-#Saving the plot
+#Saving the plot:
 ggsave("Deaths_per_million_selected.png")
 
 ##Calculating Case Fatality Rate:
@@ -82,8 +87,11 @@ selected %>%
        x = "Date", y = "CFR (%)") +
   theme_bw()
 
-#Saving the plot
+#Saving the plot:
 ggsave("CFR_date_selected.png")
+
+#Final message:
+message("✅ COVID-19 analysis complete. Plots and summary saved to working directory.")
 
 # To reproduce this script:
 # Save 'owid-covid-data.csv' from https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/master/public/data/owid-covid-data.csv
