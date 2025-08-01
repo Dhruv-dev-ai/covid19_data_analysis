@@ -4,9 +4,9 @@
 This project explores how COVID-19 impacted different countries by comparing infection rates, death rates, and vaccination coverage using R. Focus countries: India, USA, Brazil, and Germany.
 
 ## Highlights
-- 📈 Time-series trends of new cases and deaths per million.
-- ⚖️ Case Fatality Rate comparison across countries.
-- 💉 Visual correlation between vaccination coverage and death reduction.
+-  Time-series trends of new cases and deaths per million.
+-  Case Fatality Rate comparison across countries.
+-  Visual correlation between vaccination coverage and death reduction.
 
 ## Tools Used
 - R (ggplot2, dplyr, lubridate)
