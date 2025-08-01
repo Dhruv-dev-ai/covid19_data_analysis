@@ -1,4 +1,8 @@
 # COVID-19 Comparative Public Health Analysis
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![R](https://img.shields.io/badge/Built%20with-R-blue?logo=R)
+![Status](https://img.shields.io/badge/Project-Complete-brightgreen)
+
 
 ## Objective
 This project explores how COVID-19 impacted different countries by comparing infection rates, death rates, and vaccination coverage using R. Focus countries: India, USA, Brazil, and Germany.
